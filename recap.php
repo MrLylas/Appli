@@ -7,10 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="style.css">
     <title>Récapitulatif des produits</title>
 </head>
 <body>
+    <nav class="navBar">
+        <div class="accessRecap"><a href="recap.php">Recap</a></div>
+        <div class="accessIndex"><a href="index.php">Index</a></div>
+    </nav>
     <?php 
 
 // Si aucun produit :
@@ -19,19 +23,21 @@
         echo "<p>Aucun produit en session...</p>";
 // Entete du tableau :
     }else{
-            echo "<table>",
+            echo "<div class='container'>",
+                    "<table class='carte glass'>",
                     "<thead>",
                     "<tr>",
-                        "<tr>#</th>",
-                        "<tr>Nom</th>",
-                        "<tr>Prix</th>",
-                        "<tr>Quantité</th>",
-                        "<tr>Total</th>",
+                        "<th>#</th>",
+                        "<th>Nom</th>",
+                        "<th>Prix</th>",
+                        "<th>Quantité</th>",
+                        "<th>Total</th>",
                     "<tr>",
-                    "<thead>",
+                    "</thead>",
                     "<tbody>";
 //Initialisation du total général :
         $totalGeneral = 0;
+        $totalProduct = 0;
 //Pour chaque session afficher résultats tableau + calculer total général 
         foreach($_SESSION['products'] as $index => $product){
             echo "<tr>",
@@ -43,14 +49,20 @@
                 "</tr>";
 //Calculer total général :
             $totalGeneral+=$product['total'];
+            $totalProduct+=$product['qtt'];
         }
 //Affichage du total général :
         echo "<tr>",
-                "<td colsapan=4>Total General</td>",
+                "<td>Prix Total</td>",
                 "<td><strong>".number_format($totalGeneral,2,",", "&nbsp;")."&nbsp;€</strong></td>",
+            "</tr>",
+            "<tr>",
+                "<td>Total Produits</td>",
+                "<td><strong>".$totalProduct."&nbsp;</strong></td>",
             "</tr>",
             "</tbody>",
             "</table>";
+            "</div>";
         }
     ?>
 </body>
