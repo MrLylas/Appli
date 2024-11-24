@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajout produit</title>
+    <title>Ajouter produit</title>
     <link rel="stylesheet" href="style.css">
 </head>
     <body>
 
-<!------------------------------- Barre de menu ------------------------------------------------->
-            <nav class="navBar">
-                <div class="accessRecap"><a href="recap.php">Recap</a></div>
-                <div class="accessIndex"><a href="index.php">Index</a></div>
-            </nav>
 <!------------------------------- Titre -------------------------------------------------------->
         <h1>Ajouter un produit</h1>    
         
@@ -51,5 +46,13 @@
             <td>Total Produits</td>
             <td><strong></strong></td>
         </tr>
+        <script>
+            if (document.title != "Ajouter produit") {
+                 document.title = "Ajouter produit";
+                }
+        </script>
+        <?php
+        $content = ob_get_clean();
+        require_once 'template.php';?>
     </body>
 </html>

@@ -1,21 +1,7 @@
 <?php
 // Fonction sessions_start permettant de démarrer un session ou récupérer la session de ce même utilisateur :
     session_start();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Récapitulatif des produits</title>
-</head>
-<body>
-    <nav class="navBar">
-        <div class="accessRecap"><a href="recap.php">Recap</a></div>
-        <div class="accessIndex"><a href="index.php">Index</a></div>
-    </nav>
-    <?php 
+    ob_start();
 
 // Si aucun produit :
 
@@ -64,6 +50,14 @@
             "</table>";
             "</div>";
         }
+        ?>
+        <script>
+            if (document.title != "Recap") {
+                 document.title = "Recap";
+                }
+        </script>
+        <?php
+        $content = ob_get_clean();
+        
+        require_once 'template.php';
     ?>
-</body>
-</html>
