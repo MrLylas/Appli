@@ -1,3 +1,4 @@
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -7,10 +8,13 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+    <?php include_once 'fonctions.php'?>
         <nav class="navBar">
-            <div class="accessRecap"><a href="recap.php">Recap</a></div>
+            <div class="accessRecap"><a href="recap.php">Recap</a><?=afficherCount()?></div>
             <div class="accessIndex"><a href="index.php">Index</a></div>
         </nav>
         <?=$content?>
+        
     </body>
+
 

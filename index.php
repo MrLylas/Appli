@@ -1,3 +1,8 @@
+<?php
+session_start();
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,10 +47,6 @@
             </p>
         </form>
     </div>
-        <tr>
-            <td>Total Produits</td>
-            <td><strong></strong></td>
-        </tr>
         <script>
             if (document.title != "Ajouter produit") {
                  document.title = "Ajouter produit";
@@ -53,6 +54,8 @@
         </script>
         <?php
         $content = ob_get_clean();
-        require_once 'template.php';?>
+        
+        require_once 'template.php';
+        ?>
     </body>
 </html>

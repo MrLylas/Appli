@@ -33,7 +33,10 @@
 
 
             $_SESSION['products'][]=$product;
+            $_SESSION['alert'] = "<p>Produit ajouté</p>";
+        }else{
+            $_SESSION['alert'] = "<p>Formulaire non conforme</p>";
+            header("Location:index.php");
         }
     }
-
     header("Location:index.php");

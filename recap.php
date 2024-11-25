@@ -37,19 +37,18 @@
             $totalGeneral+=$product['total'];
             $totalProduct+=$product['qtt'];
         }
+
 //Affichage du total général :
         echo "<tr>",
                 "<td>Prix Total</td>",
                 "<td><strong>".number_format($totalGeneral,2,",", "&nbsp;")."&nbsp;€</strong></td>",
             "</tr>",
-            "<tr>",
-                "<td>Total Produits</td>",
-                "<td><strong>".$totalProduct."&nbsp;</strong></td>",
-            "</tr>",
             "</tbody>",
             "</table>";
             "</div>";
         }
+//Supprimer un produit 
+
         ?>
         <script>
             if (document.title != "Recap") {
