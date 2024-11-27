@@ -1,6 +1,6 @@
 <?php
-function afficherCount()
-        {
+function afficherCount(){
+
             if (!isset($_SESSION["products"]) || empty($_SESSION["products"])) {
                 return "0";
             } else {
@@ -11,4 +11,5 @@ function afficherCount()
                 return $qtt_sum;
             }
         }
-?>
+
+            

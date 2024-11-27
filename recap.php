@@ -3,6 +3,10 @@
     session_start();
     ob_start();
 
+//Ajouter/Retirer ou supprimer
+
+// if(isset($_GET[]))
+
 // Si aucun produit :
 
     if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
@@ -18,6 +22,9 @@
                         "<th>Prix</th>",
                         "<th>Quantité</th>",
                         "<th>Total</th>",
+                        "<th>Ajouter/Retirer</th>",
+                        "<th>Supprimer</th>",
+
                     "<tr>",
                     "</thead>",
                     "<tbody>";
@@ -26,13 +33,17 @@
         $totalProduct = 0;
 //Pour chaque session afficher résultats tableau + calculer total général 
         foreach($_SESSION['products'] as $index => $product){
+
+     
             echo "<tr>",
                     "<td>".$index."</td>",
                     "<td>".$product['name']."</td>",
                     "<td>".number_format($product['price'],2,",", "&nbsp;")."&nbsp;€</td>",
                     "<td>".$product['qtt']."</td>",
                     "<td>".number_format($product['total'],2,",", "&nbsp;")."&nbsp;€</td>",
-                "</tr>";
+                    "<td><a href='traitement.php?action=up-qtt&id=$index'>+</a><a href='traitement.php?action=down-qtt&id=$index'>-</a></td>",
+                    "<td><a href='traitement.php?action=delete&id=$index'>Supprimer</a></td>",
+                    "</tr>";
 //Calculer total général :
             $totalGeneral+=$product['total'];
             $totalProduct+=$product['qtt'];
@@ -50,6 +61,7 @@
 //Supprimer un produit 
 
         ?>
+        <button></button>
         <script>
             if (document.title != "Recap") {
                  document.title = "Recap";

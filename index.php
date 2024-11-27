@@ -19,7 +19,7 @@ ob_start();
 <!---------------- Récuperation du fichier traitement et methode de transmission de données ---->
 <!---------------------- Mise en place du formulaire : ---------------------------------------->
     <div class="container">
-        <form class="carte glass" action="traitement.php" method="post">
+        <form class="carte glass" action="traitement.php?action=add" method="post">
             <p >
 <!------------------------ Entrer le nom du produit--------------------------------------------->
                 <label>
@@ -47,12 +47,18 @@ ob_start();
             </p>
         </form>
     </div>
+<!-------------------------------- Changement du title de la page ------------------------------->
         <script>
             if (document.title != "Ajouter produit") {
                  document.title = "Ajouter produit";
                 }
         </script>
         <?php
+              if (isset($_SESSION["alert"])) {
+                echo $_SESSION["alert"];
+                unset($_SESSION["alert"]);
+            }
+            
         $content = ob_get_clean();
         
         require_once 'template.php';
