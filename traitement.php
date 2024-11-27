@@ -21,8 +21,8 @@
                     $product = [
                         "name"  => $name,
                         "price" => $price,
-                        "qtt"   =>$qtt,
-                        "total" =>$price*$qtt
+                        "qtt"   => $qtt,
+                        "total" => $price*$qtt
                     ];
                     
                     $_SESSION['products'][]=$product;
@@ -45,21 +45,23 @@
                 }
                 break;
                 
-                // case "up-qtt":
-                //     if(isset($_GET["id"])){
-                //         $index = $_GET["id"];
-                //         $_SESSION['products']['qtt']++;
-                //         header("location:recap.php");
-                //     }
-                //     break;
+                case "upqtt":
+                    if(isset($_GET["id"])){
+                        $index = $_GET["id"];
+                        $_SESSION['products'][$index]['qtt']++;
+                        $index = $_GET["id"];
+                        $_SESSION['products'][$index]['price'];
+                        header("location:recap.php");
+                    }
+                    break;
                     
-                //     case "down-qtt":
-                //         if(isset($_GET["id"])){
-                //             $index = $_GET["id"];
-                //             $_SESSION['products'][$index]['qtt']--;
-                //             header('location:recap.php');
-                //         }
-                //         break;
+                    case "downqtt":
+                        if(isset($_GET["id"])){
+                            $index = $_GET["id"];
+                            $_SESSION['products'][$index]['qtt']--;
+                            header('location:recap.php');
+                        }
+                        break;
                         
                     }
                 }
