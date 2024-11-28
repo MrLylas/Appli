@@ -68,6 +68,18 @@
                             header("Location: recap.php");
                         }
                         break;
+                    
+                        case "clear":
+                            if (isset($_SESSION['products'])) {
+                                unset($_SESSION['products']);
+                                $_SESSION['alert'] = "<p>Le panier a été vidé.</p>";
+                            } else {
+                                $_SESSION['alert'] = "<p>Le panier est déjà vide.</p>";
+                            }
+                            header("Location: recap.php");
+                            break;
+                        
+                        
                 
                     
                         

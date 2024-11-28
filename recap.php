@@ -66,6 +66,7 @@ if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
         "</tr>",
         "</tbody>",
         "</table>",
+        "<a class='bouton clear' href='traitement.php?action=clear&id=$index'>Clear</a>",
         "</div>";
     }
     ?>

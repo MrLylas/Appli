@@ -47,7 +47,6 @@ ob_start();
                 <br><input type="submit" name="submit" value="Ajouter le produit">
             </p>
             </div>
-            <img src="118089.png" alt="Cart pic">
         </form>
     </div>
 <!-------------------------------- Changement du title de la page ------------------------------->
