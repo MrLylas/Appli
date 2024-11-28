@@ -20,31 +20,34 @@ ob_start();
 <!---------------------- Mise en place du formulaire : ---------------------------------------->
     <div class="container">
         <form class="carte glass" action="traitement.php?action=add" method="post">
+            <div class="formBox">
             <p >
 <!------------------------ Entrer le nom du produit--------------------------------------------->
                 <label>
                     Nom du produit :
-                    <input type="text" name="name">
+                    <br><input type="text" name="name">
                 </label>
             </p>
 <!------------------------- Entrer le prix du produit ------------------------------------------>
             <p >
                 <label>
                     Prix du produit :
-                    <input type="number" step="any" name="price">
+                    <br><input type="number" step="any" name="price">
                 </label>
             </p>
 <!------------------------ Entrer la quantité de produits---------------------------------------->
             <p >
                 <label>
                     Quantité désirée :
-                    <input type="number" name="qtt" value="1">
+                    <br><input type="number" name="qtt" value="1">
                 </label>
             </p>
 <!------------------------------ SUBMIT --------------------------------------------------------->
             <p >
-                <input type="submit" name="submit" value="Ajouter le produit">
+                <br><input type="submit" name="submit" value="Ajouter le produit">
             </p>
+            </div>
+            <img src="118089.png" alt="Cart pic">
         </form>
     </div>
 <!-------------------------------- Changement du title de la page ------------------------------->

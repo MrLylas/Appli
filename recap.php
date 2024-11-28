@@ -39,15 +39,18 @@ if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
             $prixQtt = number_format(floatval($product['price']), 2, ",", "&nbsp;");
             $prixTotal = number_format(floatval($product['total']), 2, ",", "&nbsp;");
 
-        echo "<tr>",
+        echo 
+        
+            "<tr>",
                 "<td>".$index."</td>",
                 "<td>".$product['name']."</td>",
                 "<td>".$prixQtt."&nbsp;€</td>",
                 "<td>".$product['qtt']."</td>",
                 "<td>".$prixTotal."&nbsp;€</td>",
-                "<td><a href='traitement.php?action=upqtt&id=$index'>+</a><a href='traitement.php?action=downqtt&id=$index'>-</a></td>",
-                "<td><a href='traitement.php?action=delete&id=$index'>Supprimer</a></td>",
+                "<td><a class='bouton plus' href='traitement.php?action=upqtt&id=$index'>+</a>&nbsp;<a class='bouton moins' href='traitement.php?action=downqtt&id=$index'>-</a></td>",
+                "<td><a class='bouton suppr' href='traitement.php?action=delete&id=$index'>Supprimer</a></td>",
             "</tr>";
+
         
 // Calculer le total général :
         $totalGeneral += $total;

@@ -46,22 +46,30 @@
                 break;
                 
                 case "upqtt":
-                    if(isset($_GET["id"])){
+                    if (isset($_GET["id"])) {
                         $index = $_GET["id"];
+                        // Augmenter la quantité
                         $_SESSION['products'][$index]['qtt']++;
-                        $index = $_GET["id"];
-                        $_SESSION['products'][$index]['price'];
-                        header("location:recap.php");
+                        // Recalculer le total en fonction de la nouvelle quantité
+                        $_SESSION['products'][$index]['total'] = $_SESSION['products'][$index]['price'] * $_SESSION['products'][$index]['qtt'];
+                        header("Location: recap.php");
                     }
                     break;
-                    
+                
                     case "downqtt":
-                        if(isset($_GET["id"])){
+                        if (isset($_GET["id"])) {
                             $index = $_GET["id"];
-                            $_SESSION['products'][$index]['qtt']--;
-                            header('location:recap.php');
+                            // Empêche la quantité de devenir inférieure à 1
+                            if ($_SESSION['products'][$index]['qtt'] > 1) {
+                                $_SESSION['products'][$index]['qtt']--;
+                                // Recalculer le total en fonction de la nouvelle quantité
+                                $_SESSION['products'][$index]['total'] = $_SESSION['products'][$index]['price'] * $_SESSION['products'][$index]['qtt'];
+                            }
+                            header("Location: recap.php");
                         }
                         break;
+                
+                    
                         
                     }
                 }
